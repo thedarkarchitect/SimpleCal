@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SimpleCalc</string>
-    <string name="defaultText">123456</string>
+    <string name="defaultText">0</string>
     <string name="_7">7</string>
     <string name="_8">8</string>
     <string name="_9">9</string>
