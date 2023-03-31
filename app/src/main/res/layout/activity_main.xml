@@ -60,7 +60,7 @@
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:text="@string/Divide"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
 
     </LinearLayout>
@@ -106,7 +106,7 @@
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:text="@string/Multiply"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
 
     </LinearLayout>
@@ -152,7 +152,7 @@
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:text="@string/Subtract"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
 
     </LinearLayout>
@@ -164,11 +164,21 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btnDot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:text="@string/Dot"
+            android:onClick="onDecimalPoint"
+            />
+
+        <Button
             android:id="@+id/btnZero"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="@string/_0"
             android:onClick="onDigit"
             />
@@ -190,7 +200,7 @@
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:text="@string/Add"
-            android:onClick="onDigit"
+            android:onClick="onOperator"
             />
     </LinearLayout>
 
