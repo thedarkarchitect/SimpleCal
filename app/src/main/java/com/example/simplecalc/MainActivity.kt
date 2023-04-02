@@ -45,6 +45,89 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun onEqual(view: View){
+
+        if(lastNumeric){
+            var tvValue = tvInput?.text.toString()
+            var prefix = ""
+
+            try{
+                if(tvValue.startsWith("-")){
+                    prefix = "-"
+                    tvValue = tvValue.substring(1)//this returns everything after the index entered
+
+                }
+
+                if(tvValue.contains("-")){
+                    val splitValue = tvValue.split("-")
+
+                    //separate the string values entered
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(prefix.isNotEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput?.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
+
+                }else if(tvValue.contains("+")){
+                    val splitValue = tvValue.split("+")
+
+                    //separate the string values entered
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(prefix.isNotEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput?.text = removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
+
+                }else if(tvValue.contains("/")){
+                    val splitValue = tvValue.split("/")
+
+                    //separate the string values entered
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(prefix.isNotEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput?.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
+
+                }else if(tvValue.contains("*")){
+                    val splitValue = tvValue.split("*")
+
+                    //separate the string values entered
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if(prefix.isNotEmpty()){
+                        one = prefix + one
+                    }
+
+                    tvInput?.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
+
+                }
+
+            }catch (e : java.lang.ArithmeticException){
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun removeZeroAfterDot(result : String): String{
+        var value = result
+
+        if(result.contains(".0")){
+            value = result.substring(0, result.length-2)//helps element the float after point
+        }
+        return value
+    }
+
     private fun isOperatorAdded(value : String) : Boolean {
         return if(value.startsWith("-")){//this will deal with negative entries by ignoring them
             false
